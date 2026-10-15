@@ -1,0 +1,155 @@
+{
+  "title": "GateLink HASS",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Sign in",
+        "description": "Enter your phone number to request a verification code.",
+        "data": {
+          "phone": "Phone number"
+        }
+      },
+      "verification": {
+        "title": "Verify account",
+        "description": "Enter the code sent to {account}, or select Resend code.",
+        "data": {
+          "verification_code": "Verification code",
+          "resend": "Resend code"
+        }
+      },
+      "gates": {
+        "title": "Bind gates",
+        "description": "Select gates across communities. Each selection creates a device and an opening button. Saving does not open any gate.",
+        "data": {
+          "selected_gates": "Gates to bind",
+          "timeout": "Request timeout (seconds)"
+        }
+      }
+    },
+    "error": {
+      "invalid_phone": "Enter a valid 11-digit phone number.",
+      "invalid_verification_code": "Enter the six-digit verification code.",
+      "signing_unavailable": "The verification service is not configured yet.",
+      "authorization_unavailable": "Account authorization is unavailable.",
+      "verification_failed": "Verification failed. Check the code or request a new one.",
+      "select_gates": "Select at least one gate from the list.",
+      "permission_denied": "Permission is missing or has expired for this gate.",
+      "account_expired": "The account has expired. Sign in again.",
+      "http_error": "The service returned an HTTP error.",
+      "invalid_response": "The service returned an invalid response.",
+      "request_rejected": "The service rejected the request.",
+      "timeout": "The request timed out; its result is unknown. Check the result before retrying.",
+      "cannot_connect": "Could not connect to the service. Check the network connection.",
+      "request_in_progress": "A request for this gate is already in progress.",
+      "open_failed": "The service did not confirm a successful opening request.",
+      "invalid_configuration": "The account configuration is invalid. Add the account again."
+    },
+    "abort": {
+      "already_configured": "This account is already configured.",
+      "wrong_account": "Sign in with the original account.",
+      "no_gates": "No gates with active permission were found.",
+      "reauth_required": "The account has expired. Complete sign-in from the reauthentication prompt."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Configure account",
+        "description": "Phone number: {account}  \nUser ID: {user_id}  \nLogin check: {login_status}  \nCurrent sign-in time: {issued_at}  \nLast successful login check: {checked_at}  \nBound communities: {community_count}  \nBound gates: {gate_count}\n\nTimes use the Home Assistant time zone ({time_zone}). A passed check does not guarantee future validity.\n\nUpdate bound gates and request settings. Saving does not open any gate.",
+        "data": {
+          "selected_gates": "Gates to bind",
+          "timeout": "Request timeout (seconds)"
+        }
+      }
+    },
+    "error": {
+      "invalid_phone": "Enter a valid 11-digit phone number.",
+      "invalid_verification_code": "Enter the six-digit verification code.",
+      "signing_unavailable": "The verification service is not configured yet.",
+      "authorization_unavailable": "Account authorization is unavailable.",
+      "verification_failed": "Verification failed. Check the code or request a new one.",
+      "select_gates": "Select at least one gate from the list.",
+      "permission_denied": "Permission is missing or has expired for this gate.",
+      "account_expired": "The account has expired. Sign in again.",
+      "http_error": "The service returned an HTTP error.",
+      "invalid_response": "The service returned an invalid response.",
+      "request_rejected": "The service rejected the request.",
+      "timeout": "The request timed out; its result is unknown. Check the result before retrying.",
+      "cannot_connect": "Could not connect to the service. Check the network connection.",
+      "request_in_progress": "A request for this gate is already in progress.",
+      "open_failed": "The service did not confirm a successful opening request.",
+      "invalid_configuration": "The account configuration is invalid. Add the account again."
+    },
+    "abort": {
+      "reauth_required": "The account has expired. Complete sign-in from the reauthentication prompt."
+    }
+  },
+  "entity": {
+    "button": {
+      "open_door": {
+        "name": "Open door"
+      }
+    },
+    "sensor": {
+      "login_status": {
+        "name": "Login status",
+        "state": {
+          "valid": "Sign-in valid",
+          "expired": "Sign-in expired",
+          "error": "Check failed",
+          "not_checked": "Not checked"
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "invalid_phone": {
+      "message": "Enter a valid 11-digit phone number."
+    },
+    "invalid_verification_code": {
+      "message": "Enter the six-digit verification code."
+    },
+    "signing_unavailable": {
+      "message": "The verification service is not configured yet."
+    },
+    "authorization_unavailable": {
+      "message": "Account authorization is unavailable."
+    },
+    "verification_failed": {
+      "message": "Verification failed. Check the code or request a new one."
+    },
+    "select_gates": {
+      "message": "Select at least one gate from the list."
+    },
+    "permission_denied": {
+      "message": "Permission is missing or has expired for this gate."
+    },
+    "account_expired": {
+      "message": "The account has expired. Sign in again."
+    },
+    "http_error": {
+      "message": "The service returned an HTTP error."
+    },
+    "invalid_response": {
+      "message": "The service returned an invalid response."
+    },
+    "request_rejected": {
+      "message": "The service rejected the request."
+    },
+    "timeout": {
+      "message": "The request timed out; its result is unknown. Check the result before retrying."
+    },
+    "cannot_connect": {
+      "message": "Could not connect to the service. Check the network connection."
+    },
+    "request_in_progress": {
+      "message": "A request for this gate is already in progress."
+    },
+    "open_failed": {
+      "message": "The service did not confirm a successful opening request."
+    },
+    "invalid_configuration": {
+      "message": "The account configuration is invalid. Add the account again."
+    }
+  }
+}

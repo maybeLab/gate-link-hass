@@ -1,0 +1,28 @@
+{
+  "sms": {"code": 0, "message": "success", "data": null},
+  "login": {
+    "code": 0, "message": "success",
+    "data": {"code": 0, "userId": 42, "aliPayminiLoginDTO": {"sessionId": "fixture-session-not-a-real-credential", "expires": 2592000}}
+  },
+  "communities": {
+    "code": 0, "data": [
+      {"communityId": 101, "communityName": "测试小区一", "hasPermission": true, "expiryDate": "2080-01-01 00:00:00", "applyStatusDTO": {"statusExpired": 0}},
+      {"communityId": 102, "communityName": "测试小区二", "hasPermission": true, "expiryDate": "2080-01-01 00:00:00"}
+    ]
+  },
+  "gates_101": {
+    "code": 0, "data": {
+      "authorizeExpired": 0,
+      "userDoorDTOS": [{"doorControlId": 1, "doorControlName": "入口", "macAddress": "000000000001", "status": 1}],
+      "commonlyUsedDoor": {"doorControlId": 2, "doorControlName": "常用门", "macAddress": "000000000002", "status": 1}
+    }
+  },
+  "gates_102": {
+    "code": 0, "data": {
+      "authorizeExpired": 0,
+      "userDoorDTOS": [{"doorControlId": 1, "doorControlName": "入口", "macAddress": "000000000003", "status": 1}],
+      "commonlyUsedDoor": {"doorControlId": 1, "doorControlName": "入口", "macAddress": "000000000003", "status": 1}
+    }
+  },
+  "open": {"code": 0, "message": "success", "data": {"openDoorState": 1, "expiryDate": "2080-01-01 00:00:00"}}
+}

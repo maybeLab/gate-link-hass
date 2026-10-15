@@ -1,0 +1,155 @@
+{
+  "title": "GateLink HASS",
+  "config": {
+    "step": {
+      "user": {
+        "title": "登录账号",
+        "description": "输入手机号，获取短信验证码。",
+        "data": {
+          "phone": "手机号"
+        }
+      },
+      "verification": {
+        "title": "验证账号",
+        "description": "请输入发送至 {account} 的短信验证码，或选择重新发送。",
+        "data": {
+          "verification_code": "短信验证码",
+          "resend": "重新发送验证码"
+        }
+      },
+      "gates": {
+        "title": "绑定门禁",
+        "description": "可以跨小区多选门禁，每个门禁生成独立设备和开门按钮。保存配置不会开门。",
+        "data": {
+          "selected_gates": "需要绑定的门禁",
+          "timeout": "请求超时（秒）"
+        }
+      }
+    },
+    "error": {
+      "invalid_phone": "请输入有效的 11 位手机号。",
+      "invalid_verification_code": "请输入六位短信验证码。",
+      "signing_unavailable": "验证码服务尚未配置完成，请待服务适配完成后重试。",
+      "authorization_unavailable": "暂时无法获取账号授权，请稍后重试。",
+      "verification_failed": "验证失败，请检查验证码或重新发送。",
+      "select_gates": "请从列表中至少选择一个门禁。",
+      "permission_denied": "门禁权限不足或已到期，请检查小区授权。",
+      "account_expired": "账号已失效，请重新登录。",
+      "http_error": "服务返回 HTTP 错误，请稍后重试。",
+      "invalid_response": "服务返回了无法识别的响应，请稍后重试。",
+      "request_rejected": "服务拒绝了请求，请检查账号或门禁权限。",
+      "timeout": "请求超时，结果未知。请先确认结果，再决定是否重试。",
+      "cannot_connect": "无法连接服务，请检查网络后重试。",
+      "request_in_progress": "这扇门的请求正在处理中，请等待完成。",
+      "open_failed": "服务未确认开门成功，请检查门禁状态。",
+      "invalid_configuration": "账号配置无效，请删除旧配置后重新添加账号。"
+    },
+    "abort": {
+      "already_configured": "该账号已添加，请在现有账号中调整绑定门禁。",
+      "wrong_account": "请使用原账号重新登录。",
+      "no_gates": "未发现当前有权限使用的门禁，请检查小区授权。",
+      "reauth_required": "账号已失效，请通过重新认证提示完成登录。"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "配置账号",
+        "description": "登录手机号：{account}  \n用户 ID：{user_id}  \n登录检查：{login_status}  \n本次登录时间：{issued_at}  \n最近成功检查时间：{checked_at}  \n已绑定小区：{community_count}  \n已绑定门禁：{gate_count}\n\n时间按 Home Assistant 时区（{time_zone}）显示。检查通过仅代表检查时的状态。\n\n调整绑定门禁和请求设置。保存配置不会开门。",
+        "data": {
+          "selected_gates": "需要绑定的门禁",
+          "timeout": "请求超时（秒）"
+        }
+      }
+    },
+    "error": {
+      "invalid_phone": "请输入有效的 11 位手机号。",
+      "invalid_verification_code": "请输入六位短信验证码。",
+      "signing_unavailable": "验证码服务尚未配置完成，请待服务适配完成后重试。",
+      "authorization_unavailable": "暂时无法获取账号授权，请稍后重试。",
+      "verification_failed": "验证失败，请检查验证码或重新发送。",
+      "select_gates": "请从列表中至少选择一个门禁。",
+      "permission_denied": "门禁权限不足或已到期，请检查小区授权。",
+      "account_expired": "账号已失效，请重新登录。",
+      "http_error": "服务返回 HTTP 错误，请稍后重试。",
+      "invalid_response": "服务返回了无法识别的响应，请稍后重试。",
+      "request_rejected": "服务拒绝了请求，请检查账号或门禁权限。",
+      "timeout": "请求超时，结果未知。请先确认结果，再决定是否重试。",
+      "cannot_connect": "无法连接服务，请检查网络后重试。",
+      "request_in_progress": "这扇门的请求正在处理中，请等待完成。",
+      "open_failed": "服务未确认开门成功，请检查门禁状态。",
+      "invalid_configuration": "账号配置无效，请删除旧配置后重新添加账号。"
+    },
+    "abort": {
+      "reauth_required": "账号已失效，请通过重新认证提示完成登录。"
+    }
+  },
+  "entity": {
+    "button": {
+      "open_door": {
+        "name": "开门"
+      }
+    },
+    "sensor": {
+      "login_status": {
+        "name": "登录状态",
+        "state": {
+          "valid": "登录有效",
+          "expired": "登录失效",
+          "error": "本次检查失败",
+          "not_checked": "尚未检查"
+        }
+      }
+    }
+  },
+  "exceptions": {
+    "invalid_phone": {
+      "message": "请输入有效的 11 位手机号。"
+    },
+    "invalid_verification_code": {
+      "message": "请输入六位短信验证码。"
+    },
+    "signing_unavailable": {
+      "message": "验证码服务尚未配置完成，请待服务适配完成后重试。"
+    },
+    "authorization_unavailable": {
+      "message": "暂时无法获取账号授权，请稍后重试。"
+    },
+    "verification_failed": {
+      "message": "验证失败，请检查验证码或重新发送。"
+    },
+    "select_gates": {
+      "message": "请从列表中至少选择一个门禁。"
+    },
+    "permission_denied": {
+      "message": "门禁权限不足或已到期，请检查小区授权。"
+    },
+    "account_expired": {
+      "message": "账号已失效，请重新登录。"
+    },
+    "http_error": {
+      "message": "服务返回 HTTP 错误，请稍后重试。"
+    },
+    "invalid_response": {
+      "message": "服务返回了无法识别的响应，请稍后重试。"
+    },
+    "request_rejected": {
+      "message": "服务拒绝了请求，请检查账号或门禁权限。"
+    },
+    "timeout": {
+      "message": "请求超时，结果未知。请先确认结果，再决定是否重试。"
+    },
+    "cannot_connect": {
+      "message": "无法连接服务，请检查网络后重试。"
+    },
+    "request_in_progress": {
+      "message": "这扇门的请求正在处理中，请等待完成。"
+    },
+    "open_failed": {
+      "message": "服务未确认开门成功，请检查门禁状态。"
+    },
+    "invalid_configuration": {
+      "message": "账号配置无效，请删除旧配置后重新添加账号。"
+    }
+  }
+}

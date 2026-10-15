@@ -1,0 +1,13 @@
+{
+  "domain": "gate_link_hass",
+  "name": "GateLink HASS",
+  "after_dependencies": ["logbook"],
+  "codeowners": ["@shoyuf"],
+  "config_flow": true,
+  "documentation": "https://github.com/maybeLab/gate-link-hass",
+  "integration_type": "hub",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/maybeLab/gate-link-hass/issues",
+  "requirements": [],
+  "version": "0.1.0"
+}
