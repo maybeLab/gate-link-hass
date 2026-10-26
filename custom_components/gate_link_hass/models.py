@@ -2,9 +2,10 @@
 
 import math
 from dataclasses import asdict, dataclass, field
-from datetime import datetime
+from datetime import datetime, timedelta, timezone
 from typing import Any
-from zoneinfo import ZoneInfo
+
+PERMISSION_TIME_ZONE = timezone(timedelta(hours=8))
 
 
 class ApiError(Exception):
@@ -128,7 +129,7 @@ def permission_deadline(value: Any) -> float | None:
     try:
         date = datetime.fromisoformat(value)
         if date.tzinfo is None:
-            date = date.replace(tzinfo=ZoneInfo("Asia/Shanghai"))
+            date = date.replace(tzinfo=PERMISSION_TIME_ZONE)
         return date.timestamp()
     except ValueError, TypeError:
         raise ApiError("invalid_response") from None
